@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advait N. | Designer & Creator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        body {
+            overflow-x: hidden;
+        }
+        
+        .hero-text {
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+        
+        .scroll-arrow {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+        }
+        
+        .project-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .project-overlay {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        
+        .nav-hidden {
+            transform: translateY(-100%);
+        }
+        
+        .nav-visible {
+            transform: translateY(0);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 40%;
+            height: 2px;
+            bottom: -8px;
+            left: 30%;
+            background-color: currentColor;
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.4s ease-out;
+        }
+        
+        .section-title:hover::after {
+            transform: scaleX(1);
+        }
+        
+        .experience-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+        }
+        
+        .experience-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .form-input {
+            background: transparent;
+            border-bottom: 1px solid #fff;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #fff;
+        }
+        
+        .social-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body class="bg-white text-black font-sans">
+    <!-- Navigation -->
+    <nav id="main-nav" class="fixed top-0 left-0 w-full bg-black text-white py-4 px-6 z-50 transition-transform duration-300 nav-hidden">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-bold">ADVAIT N.</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#projects" class="hover:text-gray-300 transition">Projects</a>
+                <a href="#about" class="hover:text-gray-300 transition">About</a>
+                <a href="#experience" class="hover:text-gray-300 transition">Experience</a>
+                <a href="#contact" class="hover:text-gray-300 transition">Contact</a>
+            </div>
+            <button class="md:hidden" id="mobile-menu-button">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black z-40 flex flex-col items-center justify-center space-y-8 hidden">
+        <button id="close-menu" class="absolute top-6 right-6 text-white text-2xl">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="#projects" class="text-white text-2xl">Projects</a>
+        <a href="#about" class="text-white text-2xl">About</a>
+        <a href="#experience" class="text-white text-2xl">Experience</a>
+        <a href="#contact" class="text-white text-2xl">Contact</a>
+    </div>
+    
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen bg-black text-white flex flex-col justify-center items-center relative">
+        <div class="hero-text text-center px-4">
+            <h1 class="text-5xl md:text-8xl font-bold mb-4">ADVAIT N.</h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-12">Designer • Creator • Storyteller</p>
+        </div>
+        <div class="absolute bottom-12 scroll-arrow">
+            <a href="#projects" class="text-white text-lg flex flex-col items-center">
+                <span>Scroll</span>
+                <i class="fas fa-chevron-down mt-2"></i>
+            </a>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-16">Selected Projects</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card fade-in">
+                    <div class="relative overflow-hidden rounded-lg aspect-square bg-gray-100">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6 project-overlay">
+                            <div>
+                                <h3 class="text-white text-xl font-bold">Project Opulentia</h3>
+                                <p class="text-gray-300">Brand identity & outreach</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card fade-in">
+                    <div class="relative overflow-hidden rounded-lg aspect-square bg-gray-100">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6 project-overlay">
+                            <div>
+                                <h3 class="text-white text-xl font-bold">TedX NPSIS</h3>
+                                <p class="text-gray-300">Event branding & publicity</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card fade-in">
+                    <div class="relative overflow-hidden rounded-lg aspect-square bg-gray-100">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6 project-overlay">
+                            <div>
+                                <h3 class="text-white text-xl font-bold">NASA HERC</h3>
+                                <p class="text-gray-300">Outreach campaign</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card fade-in">
+                    <div class="relative overflow-hidden rounded-lg aspect-square bg-gray-100">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6 project-overlay">
+                            <div>
+                                <h3 class="text-white text-xl font-bold">Design Club</h3>
+                                <p class="text-gray-300">Creative direction</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card fade-in">
+                    <div class="relative overflow-hidden rounded-lg aspect-square bg-gray-100">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6 project-overlay">
+                            <div>
+                                <h3 class="text-white text-xl font-bold">Gaming Creators</h3>
+                                <p class="text-gray-300">Social media assets</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-card fade-in">
+                    <div class="relative overflow-hidden rounded-lg aspect-square bg-gray-100">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6 project-overlay">
+                            <div>
+                                <h3 class="text-white text-xl font-bold">Video Highlights</h3>
+                                <p class="text-gray-300">Editing & post-production</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-black text-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-16">About Me</h2>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2 fade-in">
+                    <p class="text-lg mb-6">I'm a multidisciplinary designer and outreach specialist with a passion for creating meaningful connections through visual storytelling and strategic communication.</p>
+                    <p class="text-lg mb-6">My approach blends aesthetic sensibility with analytical thinking, allowing me to craft solutions that are both beautiful and effective.</p>
+                    <p class="text-lg">I believe in the power of design to transform ideas into impactful experiences that resonate with diverse audiences.</p>
+                </div>
+                
+                <div class="lg:w-1/2 fade-in">
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="text-4xl font-bold mr-4">40+</div>
+                            <div>Projects completed</div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="text-4xl font-bold mr-4">4+</div>
+                            <div>Years of experience</div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="text-4xl font-bold mr-4">15+</div>
+                            <div>Countries reached</div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="text-4xl font-bold mr-4">100%</div>
+                            <div>Dedication to craft</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-16">Experience</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Column 1 -->
+                <div>
+                    <div class="experience-item mb-6">
+                        <h3 class="text-xl font-bold mb-2">Publicity Manager</h3>
+                        <p class="text-gray-600">TedX NPSIS (2025)</p>
+                    </div>
+                    
+                    <div class="experience-item mb-6">
+                        <h3 class="text-xl font-bold mb-2">Outreach Head</h3>
+                        <p class="text-gray-600">Project Opulentia (2024–2025)</p>
+                    </div>
+                    
+                    <div class="experience-item mb-6">
+                        <h3 class="text-xl font-bold mb-2">Head of Outreach</h3>
+                        <p class="text-gray-600">Design and Engineering Club (2024–25)</p>
+                    </div>
+                    
+                    <div class="experience-item mb-6">
+                        <h3 class="text-xl font-bold mb-2">Deputy Head of Outreach</h3>
+                        <p class="text-gray-600">Design and Engineering Club (2023–24)</p>
+                    </div>
+                    
+                    <div class="experience-item mb-6">
+                        <h3 class="text-xl font-bold mb-2">Outreach Lead</h3>
+                        <p class="text-gray-600">NASA HERC Team (2023–24)</p>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <div class="experience-item mb-6">
+                        <h3 class="text-xl font-bold mb-2">Marketing Head</h3>
+                        <p class="text-gray-600">History Club (2024–2025)</p>
+                    </div>
+                    
+                    <div class="experience-item mb-6">
+                        <h3 class="text-xl font-bold mb-2">Outreach Team Member</h3>
+                        <p class="text-gray-600">Project Ancora (2022–2023)</p>
+                    </div>
+                    
+                    <div class="experience-item mb-6">
+                        <h3 class="text-xl font-bold mb-2">Digital Literacy</h3>
+                        <p class="text-gray-600">Proficient in GPT-4 for advanced automation tasks</p>
+                    </div>
+                    
+                    <div class="experience-item mb-6">
+                        <h3 class="text-xl font-bold mb-2">Design Tools</h3>
+                        <p class="text-gray-600">Canva Pro, Adobe After Effects, Photoshop, Sony Vegas, Premiere Pro</p>
+                    </div>
+                    
+                    <div class="experience-item mb-6">
+                        <h3 class="text-xl font-bold mb-2">Freelance Work</h3>
+                        <p class="text-gray-600">Edited highlight reels for overseas clients, designed social banners for gaming content creators</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-black text-white">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-16">Let's work together</h2>
+            
+            <div class="space-y-6 text-center">
+                <div class="text-xl">
+                    <a href="mailto:your.email@example.com" class="hover:text-gray-300 transition">your.email@example.com</a>
+                </div>
+                <div class="text-xl">
+                    <a href="tel:+1234567890" class="hover:text-gray-300 transition">+1 (234) 567-890</a>
+                </div>
+            </div>
+            
+            <div class="flex justify-center space-x-6 mt-12">
+                <a href="https://www.behance.net/advaitn" class="social-icon text-white text-xl hover:text-gray-300">
+                    <i class="fab fa-behance"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/advaitn" class="social-icon text-white text-xl hover:text-gray-300">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/advaitn" class="social-icon text-white text-xl hover:text-gray-300">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/advaitn" class="social-icon text-white text-xl hover:text-gray-300">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-8 px-6 bg-black text-white text-center">
+        <div class="max-w-6xl mx-auto">
+            <p class="text-sm mb-4">© 2025 Advait N. All rights reserved.</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="text-sm hover:text-gray-300">Privacy</a>
+                <a href="#" class="text-sm hover:text-gray-300">Terms</a>
+                <a href="#" class="text-sm hover:text-gray-300">Imprint</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Navigation show/hide on scroll
+        let lastScroll = 0;
+        const nav = document.getElementById('main-nav');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                nav.classList.add('nav-hidden');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && !nav.classList.contains('nav-hidden')) {
+                // Scroll down
+                nav.classList.add('nav-hidden');
+            } else if (currentScroll < lastScroll && nav.classList.contains('nav-hidden')) {
+                // Scroll up
+                nav.classList.remove('nav-hidden');
+                nav.classList.add('nav-visible');
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Show nav after hero section
+        const heroSection = document.getElementById('hero');
+        const heroHeight = heroSection.offsetHeight;
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > heroHeight * 0.8) {
+                nav.classList.remove('nav-hidden');
+                nav.classList.add('nav-visible');
+            }
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuButton = document.getElementById('close-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const experienceItems = document.querySelectorAll('.experience-item');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        fadeElements.forEach(el => observer.observe(el));
+        
+        // Experience items staggered animation
+        const experienceObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        experienceItems.forEach(el => experienceObserver.observe(el));
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
